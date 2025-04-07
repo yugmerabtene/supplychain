@@ -1,7 +1,3 @@
-Voici l'article "Petite histoire des systèmes d’informations logistiques" structuré pour une meilleure lisibilité :
-
----
-
 # Petite histoire des systèmes d’informations logistiques
 
 *Publié le 14 mars 2022 par Vincent Criton*
