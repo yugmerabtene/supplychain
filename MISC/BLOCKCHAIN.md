@@ -1,3 +1,97 @@
+## 🧱 Schéma de la **Blockchain**
+
+```
++-----------+     +-----------+     +-----------+     +-----------+
+|  Bloc 1   | --> |  Bloc 2   | --> |  Bloc 3   | --> |  Bloc 4   |
+|-----------|     |-----------|     |-----------|     |-----------|
+| Données   |     | Données   |     | Données   |     | Données   |
+| Hash      |     | Hash      |     | Hash      |     | Hash      |
+| Hash Prev |     | Hash Prev |     | Hash Prev |     | Hash Prev |
++-----------+     +-----------+     +-----------+     +-----------+
+```
+
+🧩 Chaque **bloc** contient :
+- Des **données** (transactions, infos produit, événements),
+- Un **hash** (empreinte cryptographique),
+- Le **hash du bloc précédent**, ce qui crée une **chaîne sécurisée**.
+
+---
+
+## 🤖 Schéma d’un **Smart Contract** dans la Supply Chain
+
+```
+               Données IoT (Température, GPS, Horodatage)
+                               │
+                               ▼
+                      +------------------+
+                      | Smart Contract   |
+                      |------------------|
+                      | Conditions :     |
+                      |  - Temp OK ?     |
+                      |  - Livraison OK ?|
+                      +--------+---------+
+                               │
+       ┌───────────────────────┴───────────────────────┐
+       ▼                                               ▼
++------------------+                        +----------------------+
+| Conditions OK    |                        | Conditions NON remplies |
+|------------------|                        |-------------------------|
+| - Valide livraison|                       | - Blocage livraison     |
+| - Déclenche paiement|                     | - Enquête déclenchée    |
++------------------+                        +----------------------+
+```
+
+🎯 Le **smart contract** vérifie automatiquement des règles (ex : température, délai de livraison) et **déclenche une action** en conséquence, sans intervention humaine.
+
+
+
+## 🔗 Relation entre **Blockchain** et **Smart Contract**
+
+```
+        +---------------------------------------------------+
+        |                Réseau Blockchain                  |
+        |  (registre distribué, sécurisé, immuable)         |
+        +---------------------------------------------------+
+              ▲                     ▲                    ▲
+              |                     |                    |
+        +-----------+        +-----------+        +-----------+
+        |  Bloc 1   |        |  Bloc 2   |        |  Bloc 3   |   ...
+        |-----------|        |-----------|        |-----------|
+        | Données   |        | Données   |        | Données   |
+        | + SmartC. |◄─────┐ | + Résultat|        | + Nouveau |
+        +-----------+      │ +-----------+        +-----------+
+                           │
+                           ▼
+                    +--------------------+
+                    |  Smart Contract    |   <= (Code exécuté sur la blockchain)
+                    |--------------------|
+                    | Conditions métier  |   
+                    |  (ex: livraison OK?)|
+                    |--------------------|
+                    | Déclenche action   |
+                    | (paiement, alerte…)|
+                    +--------------------+
+```
+
+---
+
+## 🔁 Logique du schéma
+
+1. 🔒 **Le Smart Contract est enregistré dans un bloc de la blockchain** (Bloc 1).
+2. 🧠 Il s’exécute automatiquement quand un événement survient (ex: livraison détectée).
+3. ✅ S’il valide les conditions, **il génère un résultat** (paiement, validation, rejet), qui est **à son tour enregistré dans un nouveau bloc**.
+4. 🔗 Toute la logique (données + code + résultat) est **enchaînée dans la blockchain**.
+
+---
+
+✅ Résultat :
+- **Sécurité** : impossible de modifier les règles ou résultats a posteriori.
+- **Transparence** : tout est enregistré et visible.
+- **Automatisation** : les décisions sont prises en temps réel sans intervention humaine.
+
+
+
+
 ## TP-BLOCKCHAIN-SMARTCONTRACT
 ## 🎯 Objectif général
 
